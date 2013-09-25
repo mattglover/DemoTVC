@@ -10,6 +10,12 @@
 
 @implementation StaffNameTableViewCell
 
+-(void)awakeFromNib {
+    [super awakeFromNib];
+    [_callButton setAlpha:0.0];
+    [_pageButton setAlpha:0.0];
+    [_cancelButton setAlpha:0.0];
+}
 - (UITableViewCellSelectionStyle)selectionStyle {
     return UITableViewCellSelectionStyleNone;
 }

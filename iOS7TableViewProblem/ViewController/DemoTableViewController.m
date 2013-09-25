@@ -19,9 +19,6 @@ static NSString * const kStaffCellIdentifier = @"StaffNameCellIdentifier";
 static NSString * const kProjectCellNibName    = @"ProjectTableViewCell";
 static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
 
-#define CELL_HEIGHT_CLOSED 120.0f
-#define CELL_HEIGHT_OPEN   240.0f
-
 @interface DemoTableViewController ()<UITableViewDataSource, UITableViewDelegate, StaffNameTableViewCellDelegate>
 
 @property (nonatomic, strong) NSArray *staff;
@@ -45,6 +42,11 @@ static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
     
     self.tableData = [NSMutableArray array];
     [_tableData addObjectsFromArray:self.staff];
+    NSArray *staffZeroProjects = [(Staff *)_staff[0] projects];
+    for (NSUInteger index = 0; index < [staffZeroProjects count]; index++) {
+        Project *project = staffZeroProjects[index];
+        [_tableData insertObject:project atIndex:index+1];
+    }
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     [self registerNibs];
@@ -105,12 +107,14 @@ static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
 #pragma mark - UITableView Delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (!self.selectedIndexPath) {
-        return CELL_HEIGHT_CLOSED;
+    id item = _tableData[indexPath.row];
+    if ([item isKindOfClass:[Staff class]]) {
+        return 100.0f;
+    } else if ([item isKindOfClass:[Project class]]) {
+        return 50.0f;
     }
-    
-    CGFloat height = (indexPath.row == _selectedIndexPath.row) ? CELL_HEIGHT_OPEN : CELL_HEIGHT_CLOSED;
-    return height;
+
+    return 0;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -118,10 +122,67 @@ static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
     [tableView beginUpdates];
     
     if (!self.selectedIndexPath || indexPath.row != self.selectedIndexPath.row ) {
+        // New cell selected
         self.selectedIndexPath = indexPath;
+        Staff *selectedStaff = _tableData[indexPath.row];
+        
+        // Remove Projects from _tableData and tableView
+        NSMutableArray *deletedIndexPaths = [NSMutableArray array];
+        for (NSUInteger index = 0; index < [_tableData count]; index++) {
+            id item = _tableData[index];
+            if ([item isKindOfClass:[Project class]]) {
+                NSIndexPath *projectIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
+                [deletedIndexPaths addObject:projectIndexPath];
+            }
+        }
+        NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
+        for (NSIndexPath *indexPath in deletedIndexPaths) {
+            [indexSet addIndex:indexPath.row];
+        }
+        [_tableData removeObjectsAtIndexes:indexSet];
+        [_tableView deleteRowsAtIndexPaths:deletedIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
+
+        // Add Projects from selected Staff
+        NSMutableArray *addedProjects = [NSMutableArray array];
+        NSMutableArray *insertedIndexPaths = [NSMutableArray array];
+        NSArray *staffProjects = selectedStaff.projects;
+        NSUInteger staffIndex = [_tableData indexOfObject:selectedStaff];
+        for (NSUInteger index = 0; index < [staffProjects count]; index++) {
+            Project *project = staffProjects[index];
+            [addedProjects addObject:project];
+            NSIndexPath *projectIndexPath = [NSIndexPath indexPathForRow:staffIndex+1+index inSection:0];
+            [insertedIndexPaths addObject:projectIndexPath];
+        }
+        
+        indexSet = [NSMutableIndexSet indexSet];
+        for (NSIndexPath *indexPath in insertedIndexPaths) {
+            [indexSet addIndex:indexPath.row];
+        }
+        
+        [_tableData insertObjects:addedProjects atIndexes:indexSet];
+        
+        [_tableView insertRowsAtIndexPaths:insertedIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
+        
     } else {
+        // Selected cell reSelected
         self.selectedIndexPath = nil;
         [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        
+        // Remove Projects from _tableData and tableView
+        NSMutableArray *deletedIndexPaths = [NSMutableArray array];
+        for (NSUInteger index = 0; index < [_tableData count]; index++) {
+            id item = _tableData[index];
+            if ([item isKindOfClass:[Project class]]) {
+                NSIndexPath *projectIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
+                [deletedIndexPaths addObject:projectIndexPath];
+            }
+        }
+        NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
+        for (NSIndexPath *indexPath in deletedIndexPaths) {
+            [indexSet addIndex:indexPath.row];
+        }
+        [_tableData removeObjectsAtIndexes:indexSet];
+        [_tableView deleteRowsAtIndexPaths:deletedIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
     }
     
     [tableView endUpdates];
