@@ -19,6 +19,9 @@
 		E267FBF617F325AD00154D41 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E267FBDE17F325AD00154D41 /* UIKit.framework */; };
 		E267FBFE17F325AE00154D41 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E267FBFC17F325AE00154D41 /* InfoPlist.strings */; };
 		E267FC0017F325AE00154D41 /* iOS7TableViewProblemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E267FBFF17F325AE00154D41 /* iOS7TableViewProblemTests.m */; };
+		E267FC0E17F325F600154D41 /* DemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E267FC0D17F325F600154D41 /* DemoTableViewController.m */; };
+		E267FC1217F3274500154D41 /* StaffNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E267FC1117F3274500154D41 /* StaffNameTableViewCell.xib */; };
+		E267FC1517F3278300154D41 /* StaffNameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E267FC1417F3278300154D41 /* StaffNameTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,11 @@
 		E267FBFB17F325AE00154D41 /* iOS7TableViewProblemTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iOS7TableViewProblemTests-Info.plist"; sourceTree = "<group>"; };
 		E267FBFD17F325AE00154D41 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		E267FBFF17F325AE00154D41 /* iOS7TableViewProblemTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iOS7TableViewProblemTests.m; sourceTree = "<group>"; };
+		E267FC0C17F325F600154D41 /* DemoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoTableViewController.h; sourceTree = "<group>"; };
+		E267FC0D17F325F600154D41 /* DemoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoTableViewController.m; sourceTree = "<group>"; };
+		E267FC1117F3274500154D41 /* StaffNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffNameTableViewCell.xib; sourceTree = "<group>"; };
+		E267FC1317F3278300154D41 /* StaffNameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffNameTableViewCell.h; sourceTree = "<group>"; };
+		E267FC1417F3278300154D41 /* StaffNameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffNameTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,8 +115,9 @@
 		E267FBE017F325AD00154D41 /* iOS7TableViewProblem */ = {
 			isa = PBXGroup;
 			children = (
-				E267FBE917F325AD00154D41 /* AppDelegate.h */,
-				E267FBEA17F325AD00154D41 /* AppDelegate.m */,
+				E267FC0A17F325C000154D41 /* Model */,
+				E267FC0B17F325C700154D41 /* View */,
+				E267FC0917F325B800154D41 /* ViewController */,
 				E267FBEC17F325AD00154D41 /* Images.xcassets */,
 				E267FBE117F325AD00154D41 /* Supporting Files */,
 			);
@@ -118,6 +127,8 @@
 		E267FBE117F325AD00154D41 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E267FBE917F325AD00154D41 /* AppDelegate.h */,
+				E267FBEA17F325AD00154D41 /* AppDelegate.m */,
 				E267FBE217F325AD00154D41 /* iOS7TableViewProblem-Info.plist */,
 				E267FBE317F325AD00154D41 /* InfoPlist.strings */,
 				E267FBE617F325AD00154D41 /* main.m */,
@@ -142,6 +153,48 @@
 				E267FBFC17F325AE00154D41 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E267FC0917F325B800154D41 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E267FC0F17F3271600154D41 /* Demo Table View Controller */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		E267FC0A17F325C000154D41 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E267FC0B17F325C700154D41 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E267FC1017F3272A00154D41 /* Staff Name Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E267FC0F17F3271600154D41 /* Demo Table View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E267FC0C17F325F600154D41 /* DemoTableViewController.h */,
+				E267FC0D17F325F600154D41 /* DemoTableViewController.m */,
+			);
+			name = "Demo Table View Controller";
+			sourceTree = "<group>";
+		};
+		E267FC1017F3272A00154D41 /* Staff Name Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E267FC1117F3274500154D41 /* StaffNameTableViewCell.xib */,
+				E267FC1317F3278300154D41 /* StaffNameTableViewCell.h */,
+				E267FC1417F3278300154D41 /* StaffNameTableViewCell.m */,
+			);
+			name = "Staff Name Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +274,7 @@
 			files = (
 				E267FBE517F325AD00154D41 /* InfoPlist.strings in Resources */,
 				E267FBED17F325AD00154D41 /* Images.xcassets in Resources */,
+				E267FC1217F3274500154D41 /* StaffNameTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,8 +293,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E267FC0E17F325F600154D41 /* DemoTableViewController.m in Sources */,
 				E267FBEB17F325AD00154D41 /* AppDelegate.m in Sources */,
 				E267FBE717F325AD00154D41 /* main.m in Sources */,
+				E267FC1517F3278300154D41 /* StaffNameTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +420,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS7TableViewProblem/iOS7TableViewProblem-Prefix.pch";
 				INFOPLIST_FILE = "iOS7TableViewProblem/iOS7TableViewProblem-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -377,7 +435,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iOS7TableViewProblem/iOS7TableViewProblem-Prefix.pch";
 				INFOPLIST_FILE = "iOS7TableViewProblem/iOS7TableViewProblem-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
