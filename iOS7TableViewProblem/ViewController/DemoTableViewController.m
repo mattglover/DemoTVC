@@ -61,6 +61,7 @@ static NSString * const kStaffCellIdentifier = @"StaffNameCellIdentifier";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     StaffNameTableViewCell *cell = (StaffNameTableViewCell *) [tableView dequeueReusableCellWithIdentifier:kStaffCellIdentifier forIndexPath:indexPath];
+    [cell setClipsToBounds:YES];
     [cell setDelegate:self];
     [self configureStaffNameCell:cell staffName:self.staffNames[indexPath.row]];
     
