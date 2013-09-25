@@ -22,6 +22,12 @@
 		E267FC0E17F325F600154D41 /* DemoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E267FC0D17F325F600154D41 /* DemoTableViewController.m */; };
 		E267FC1217F3274500154D41 /* StaffNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E267FC1117F3274500154D41 /* StaffNameTableViewCell.xib */; };
 		E267FC1517F3278300154D41 /* StaffNameTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E267FC1417F3278300154D41 /* StaffNameTableViewCell.m */; };
+		E267FC1E17F34A0E00154D41 /* Staff.m in Sources */ = {isa = PBXBuildFile; fileRef = E267FC1D17F34A0E00154D41 /* Staff.m */; };
+		E267FC2117F34A4A00154D41 /* Project.m in Sources */ = {isa = PBXBuildFile; fileRef = E267FC2017F34A4A00154D41 /* Project.m */; };
+		E267FC2417F34ABE00154D41 /* staffData.plist in Resources */ = {isa = PBXBuildFile; fileRef = E267FC2317F34ABE00154D41 /* staffData.plist */; };
+		E267FC2717F388BA00154D41 /* StaffService.m in Sources */ = {isa = PBXBuildFile; fileRef = E267FC2617F388BA00154D41 /* StaffService.m */; };
+		E267FC2B17F38A4500154D41 /* ProjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E267FC2A17F38A4500154D41 /* ProjectTableViewCell.m */; };
+		E267FC2D17F38A5300154D41 /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E267FC2C17F38A5300154D41 /* ProjectTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +62,16 @@
 		E267FC1117F3274500154D41 /* StaffNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StaffNameTableViewCell.xib; sourceTree = "<group>"; };
 		E267FC1317F3278300154D41 /* StaffNameTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffNameTableViewCell.h; sourceTree = "<group>"; };
 		E267FC1417F3278300154D41 /* StaffNameTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffNameTableViewCell.m; sourceTree = "<group>"; };
+		E267FC1C17F34A0E00154D41 /* Staff.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Staff.h; sourceTree = "<group>"; };
+		E267FC1D17F34A0E00154D41 /* Staff.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Staff.m; sourceTree = "<group>"; };
+		E267FC1F17F34A4A00154D41 /* Project.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Project.h; sourceTree = "<group>"; };
+		E267FC2017F34A4A00154D41 /* Project.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Project.m; sourceTree = "<group>"; };
+		E267FC2317F34ABE00154D41 /* staffData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = staffData.plist; sourceTree = "<group>"; };
+		E267FC2517F388BA00154D41 /* StaffService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffService.h; sourceTree = "<group>"; };
+		E267FC2617F388BA00154D41 /* StaffService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffService.m; sourceTree = "<group>"; };
+		E267FC2917F38A4500154D41 /* ProjectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTableViewCell.h; sourceTree = "<group>"; };
+		E267FC2A17F38A4500154D41 /* ProjectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTableViewCell.m; sourceTree = "<group>"; };
+		E267FC2C17F38A5300154D41 /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +131,7 @@
 		E267FBE017F325AD00154D41 /* iOS7TableViewProblem */ = {
 			isa = PBXGroup;
 			children = (
+				E267FC2217F34A9600154D41 /* Resources */,
 				E267FC0A17F325C000154D41 /* Model */,
 				E267FC0B17F325C700154D41 /* View */,
 				E267FC0917F325B800154D41 /* ViewController */,
@@ -166,6 +183,12 @@
 		E267FC0A17F325C000154D41 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E267FC2517F388BA00154D41 /* StaffService.h */,
+				E267FC2617F388BA00154D41 /* StaffService.m */,
+				E267FC1C17F34A0E00154D41 /* Staff.h */,
+				E267FC1D17F34A0E00154D41 /* Staff.m */,
+				E267FC1F17F34A4A00154D41 /* Project.h */,
+				E267FC2017F34A4A00154D41 /* Project.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -173,7 +196,8 @@
 		E267FC0B17F325C700154D41 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E267FC1017F3272A00154D41 /* Staff Name Cell */,
+				E267FC2817F38A0E00154D41 /* Project Cell */,
+				E267FC1017F3272A00154D41 /* Staff Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -187,14 +211,32 @@
 			name = "Demo Table View Controller";
 			sourceTree = "<group>";
 		};
-		E267FC1017F3272A00154D41 /* Staff Name Cell */ = {
+		E267FC1017F3272A00154D41 /* Staff Cell */ = {
 			isa = PBXGroup;
 			children = (
 				E267FC1117F3274500154D41 /* StaffNameTableViewCell.xib */,
 				E267FC1317F3278300154D41 /* StaffNameTableViewCell.h */,
 				E267FC1417F3278300154D41 /* StaffNameTableViewCell.m */,
 			);
-			name = "Staff Name Cell";
+			name = "Staff Cell";
+			sourceTree = "<group>";
+		};
+		E267FC2217F34A9600154D41 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E267FC2317F34ABE00154D41 /* staffData.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E267FC2817F38A0E00154D41 /* Project Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E267FC2C17F38A5300154D41 /* ProjectTableViewCell.xib */,
+				E267FC2917F38A4500154D41 /* ProjectTableViewCell.h */,
+				E267FC2A17F38A4500154D41 /* ProjectTableViewCell.m */,
+			);
+			name = "Project Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +315,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E267FBE517F325AD00154D41 /* InfoPlist.strings in Resources */,
+				E267FC2417F34ABE00154D41 /* staffData.plist in Resources */,
+				E267FC2D17F38A5300154D41 /* ProjectTableViewCell.xib in Resources */,
 				E267FBED17F325AD00154D41 /* Images.xcassets in Resources */,
 				E267FC1217F3274500154D41 /* StaffNameTableViewCell.xib in Resources */,
 			);
@@ -293,9 +337,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E267FC1E17F34A0E00154D41 /* Staff.m in Sources */,
 				E267FC0E17F325F600154D41 /* DemoTableViewController.m in Sources */,
 				E267FBEB17F325AD00154D41 /* AppDelegate.m in Sources */,
+				E267FC2B17F38A4500154D41 /* ProjectTableViewCell.m in Sources */,
 				E267FBE717F325AD00154D41 /* main.m in Sources */,
+				E267FC2117F34A4A00154D41 /* Project.m in Sources */,
+				E267FC2717F388BA00154D41 /* StaffService.m in Sources */,
 				E267FC1517F3278300154D41 /* StaffNameTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -503,6 +551,7 @@
 				E267FC0517F325AE00154D41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E267FC0617F325AE00154D41 /* Build configuration list for PBXNativeTarget "iOS7TableViewProblemTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +560,7 @@
 				E267FC0817F325AE00154D41 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

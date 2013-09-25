@@ -10,18 +10,6 @@
 
 @implementation StaffNameTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        [self setSelectionStyle:UITableViewCellSelectionStyleNone];
-    }
-    return self;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-}
-
 - (UITableViewCellSelectionStyle)selectionStyle {
     return UITableViewCellSelectionStyleNone;
 }
