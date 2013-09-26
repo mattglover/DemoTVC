@@ -9,15 +9,19 @@
 #import "DemoTableViewController.h"
 #import "StaffNameTableViewCell.h"
 #import "ProjectTableViewCell.h"
+#import "NewProjectDetailsTableViewCell.h"
 
 #import "StaffService.h"
 #import "Staff.h"
 #import "Project.h"
+#import "NewProject.h"
 
 static NSString * const kStaffCellNibName    = @"StaffNameTableViewCell";
 static NSString * const kStaffCellIdentifier = @"StaffNameCellIdentifier";
 static NSString * const kProjectCellNibName    = @"ProjectTableViewCell";
 static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
+static NSString * const kNewProjectCellNibName    = @"NewProjectDetailsTableViewCell";
+static NSString * const kNewProjectCellIdentifier = @"NewProjectCellIdentifier";
 
 @interface DemoTableViewController ()<UITableViewDataSource, UITableViewDelegate, StaffNameTableViewCellDelegate>
 
@@ -57,6 +61,7 @@ static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
 - (void)registerNibs {
     [self.tableView registerNib:[UINib nibWithNibName:kStaffCellNibName bundle:nil] forCellReuseIdentifier:kStaffCellIdentifier];
     [self.tableView registerNib:[UINib nibWithNibName:kProjectCellNibName bundle:nil] forCellReuseIdentifier:kProjectCellIdentifier];
+    [self.tableView registerNib:[UINib nibWithNibName:kNewProjectCellNibName bundle:nil] forCellReuseIdentifier:kNewProjectCellIdentifier];
 }
 
 #pragma mark - UITableView DataSource
@@ -83,6 +88,11 @@ static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
         [self configureProjectNameCell:cell project:_tableData[indexPath.row]];
     }
     
+    if ([item isKindOfClass:[NewProject class]]) {
+        cell = (NewProjectDetailsTableViewCell *) [tableView dequeueReusableCellWithIdentifier:kNewProjectCellIdentifier forIndexPath:indexPath];
+        [self configureNewProjectNameCell:cell project:_tableData[indexPath.row]];
+    }
+    
     if ([cell respondsToSelector:@selector(setDelegate:)]) {
         [cell performSelector:@selector(setDelegate:) withObject:self];
     }
@@ -101,6 +111,11 @@ static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
     [projectTableViewCell.projectNameLabel setText:project.name];
 }
 
+- (void)configureNewProjectNameCell:(UITableViewCell *)cell project:(Project *)project {
+//    NewProjectDetailsTableViewCell *newProjectTableViewCell = (NewProjectDetailsTableViewCell *)cell;
+//    Do something with new project details cell
+}
+
 #pragma mark - UITableView Delegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -109,6 +124,8 @@ static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
         return 100.0f;
     } else if ([item isKindOfClass:[Project class]]) {
         return 50.0f;
+    } else if ([item isKindOfClass:[NewProject class]]) {
+        return 75.0f;
     }
 
     return 0;
@@ -137,7 +154,7 @@ static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
         NSMutableArray *deletedIndexPaths = [NSMutableArray array];
         for (NSUInteger index = 0; index < [_tableData count]; index++) {
             id item = _tableData[index];
-            if ([item isKindOfClass:[Project class]]) {
+            if ([item isKindOfClass:[Project class]] || [item isKindOfClass:[NewProject class]]) {
                 NSIndexPath *projectIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
                 [deletedIndexPaths addObject:projectIndexPath];
             }
@@ -154,12 +171,19 @@ static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
         NSMutableArray *insertedIndexPaths = [NSMutableArray array];
         NSArray *staffProjects = selectedStaff.projects;
         NSUInteger staffIndex = [_tableData indexOfObject:selectedStaff];
-        for (NSUInteger index = 0; index < [staffProjects count]; index++) {
+        NSUInteger index;
+        for (index = 0; index < [staffProjects count]; index++) {
             Project *project = staffProjects[index];
             [addedProjects addObject:project];
             NSIndexPath *projectIndexPath = [NSIndexPath indexPathForRow:staffIndex+1+index inSection:0];
             [insertedIndexPaths addObject:projectIndexPath];
         }
+        
+        NewProject *newProject = [[NewProject alloc] init];
+        [addedProjects addObject:newProject];
+        NSIndexPath *newProjectIndexPath = [NSIndexPath indexPathForRow:staffIndex+1+index inSection:0];
+        [insertedIndexPaths addObject:newProjectIndexPath];
+
         [indexSet removeAllIndexes];
         for (NSIndexPath *indexPath in insertedIndexPaths) {
             [indexSet addIndex:indexPath.row];
@@ -176,7 +200,7 @@ static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
         NSMutableArray *deletedIndexPaths = [NSMutableArray array];
         for (NSUInteger index = 0; index < [_tableData count]; index++) {
             id item = _tableData[index];
-            if ([item isKindOfClass:[Project class]]) {
+            if ([item isKindOfClass:[Project class]] || [item isKindOfClass:[NewProject class]]) {
                 NSIndexPath *projectIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
                 [deletedIndexPaths addObject:projectIndexPath];
             }

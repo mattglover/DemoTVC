@@ -28,6 +28,9 @@
 		E267FC2717F388BA00154D41 /* StaffService.m in Sources */ = {isa = PBXBuildFile; fileRef = E267FC2617F388BA00154D41 /* StaffService.m */; };
 		E267FC2B17F38A4500154D41 /* ProjectTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E267FC2A17F38A4500154D41 /* ProjectTableViewCell.m */; };
 		E267FC2D17F38A5300154D41 /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E267FC2C17F38A5300154D41 /* ProjectTableViewCell.xib */; };
+		E267FC3017F42E9800154D41 /* NewProjectDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E267FC2F17F42E9800154D41 /* NewProjectDetailsTableViewCell.m */; };
+		E267FC3317F42EC100154D41 /* NewProjectDetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E267FC3217F42EC100154D41 /* NewProjectDetailsTableViewCell.xib */; };
+		E267FC3617F42FCF00154D41 /* NewProject.m in Sources */ = {isa = PBXBuildFile; fileRef = E267FC3517F42FCF00154D41 /* NewProject.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,11 @@
 		E267FC2917F38A4500154D41 /* ProjectTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectTableViewCell.h; sourceTree = "<group>"; };
 		E267FC2A17F38A4500154D41 /* ProjectTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectTableViewCell.m; sourceTree = "<group>"; };
 		E267FC2C17F38A5300154D41 /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
+		E267FC2E17F42E9800154D41 /* NewProjectDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProjectDetailsTableViewCell.h; sourceTree = "<group>"; };
+		E267FC2F17F42E9800154D41 /* NewProjectDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProjectDetailsTableViewCell.m; sourceTree = "<group>"; };
+		E267FC3217F42EC100154D41 /* NewProjectDetailsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewProjectDetailsTableViewCell.xib; sourceTree = "<group>"; };
+		E267FC3417F42FCF00154D41 /* NewProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewProject.h; sourceTree = "<group>"; };
+		E267FC3517F42FCF00154D41 /* NewProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewProject.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +197,8 @@
 				E267FC1D17F34A0E00154D41 /* Staff.m */,
 				E267FC1F17F34A4A00154D41 /* Project.h */,
 				E267FC2017F34A4A00154D41 /* Project.m */,
+				E267FC3417F42FCF00154D41 /* NewProject.h */,
+				E267FC3517F42FCF00154D41 /* NewProject.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -196,8 +206,9 @@
 		E267FC0B17F325C700154D41 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E267FC2817F38A0E00154D41 /* Project Cell */,
 				E267FC1017F3272A00154D41 /* Staff Cell */,
+				E267FC2817F38A0E00154D41 /* Project Cell */,
+				E267FC3117F42EA100154D41 /* New Project Details Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -237,6 +248,16 @@
 				E267FC2A17F38A4500154D41 /* ProjectTableViewCell.m */,
 			);
 			name = "Project Cell";
+			sourceTree = "<group>";
+		};
+		E267FC3117F42EA100154D41 /* New Project Details Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E267FC2E17F42E9800154D41 /* NewProjectDetailsTableViewCell.h */,
+				E267FC2F17F42E9800154D41 /* NewProjectDetailsTableViewCell.m */,
+				E267FC3217F42EC100154D41 /* NewProjectDetailsTableViewCell.xib */,
+			);
+			name = "New Project Details Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E267FBE517F325AD00154D41 /* InfoPlist.strings in Resources */,
+				E267FC3317F42EC100154D41 /* NewProjectDetailsTableViewCell.xib in Resources */,
 				E267FC2417F34ABE00154D41 /* staffData.plist in Resources */,
 				E267FC2D17F38A5300154D41 /* ProjectTableViewCell.xib in Resources */,
 				E267FBED17F325AD00154D41 /* Images.xcassets in Resources */,
@@ -339,10 +361,12 @@
 			files = (
 				E267FC1E17F34A0E00154D41 /* Staff.m in Sources */,
 				E267FC0E17F325F600154D41 /* DemoTableViewController.m in Sources */,
+				E267FC3617F42FCF00154D41 /* NewProject.m in Sources */,
 				E267FBEB17F325AD00154D41 /* AppDelegate.m in Sources */,
 				E267FC2B17F38A4500154D41 /* ProjectTableViewCell.m in Sources */,
 				E267FBE717F325AD00154D41 /* main.m in Sources */,
 				E267FC2117F34A4A00154D41 /* Project.m in Sources */,
+				E267FC3017F42E9800154D41 /* NewProjectDetailsTableViewCell.m in Sources */,
 				E267FC2717F388BA00154D41 /* StaffService.m in Sources */,
 				E267FC1517F3278300154D41 /* StaffNameTableViewCell.m in Sources */,
 			);
