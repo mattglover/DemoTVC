@@ -118,6 +118,16 @@ static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
     return 0;
 }
 
+- (NSIndexPath *)tableView:(UITableView *)tv willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    // Only allow Staff Cells to be selectable
+    if ([_tableData[indexPath.row] isKindOfClass:[Staff class]]) {
+        return indexPath;
+    }
+    
+    return nil;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView beginUpdates];
