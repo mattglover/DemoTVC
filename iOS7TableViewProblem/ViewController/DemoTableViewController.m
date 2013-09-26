@@ -42,11 +42,6 @@ static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
     
     self.tableData = [NSMutableArray array];
     [_tableData addObjectsFromArray:self.staff];
-    NSArray *staffZeroProjects = [(Staff *)_staff[0] projects];
-    for (NSUInteger index = 0; index < [staffZeroProjects count]; index++) {
-        Project *project = staffZeroProjects[index];
-        [_tableData insertObject:project atIndex:index+1];
-    }
     
     self.tableView = [[UITableView alloc] initWithFrame:self.view.bounds];
     [self registerNibs];
