@@ -18,6 +18,11 @@
     return UITableViewCellSelectionStyleNone;
 }
 
+- (void)prepareForReuse {
+    [self.projectTextView setText:@""];
+}
+
+#pragma mark - UIButton Listeners
 - (IBAction)addProjectPressed:(id)sender {
     if ([self.delegate respondsToSelector:@selector(newProjectCellDidAddProject:)]) {
         [self.delegate newProjectCellDidAddProject:self];
