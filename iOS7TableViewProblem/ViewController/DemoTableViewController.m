@@ -52,6 +52,7 @@ static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
     [self registerNibs];
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
+    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     
     [self.view addSubview:self.tableView];
 }
@@ -153,14 +154,11 @@ static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
             NSIndexPath *projectIndexPath = [NSIndexPath indexPathForRow:staffIndex+1+index inSection:0];
             [insertedIndexPaths addObject:projectIndexPath];
         }
-        
-        indexSet = [NSMutableIndexSet indexSet];
+        [indexSet removeAllIndexes];
         for (NSIndexPath *indexPath in insertedIndexPaths) {
             [indexSet addIndex:indexPath.row];
         }
-        
         [_tableData insertObjects:addedProjects atIndexes:indexSet];
-        
         [_tableView insertRowsAtIndexPaths:insertedIndexPaths withRowAnimation:UITableViewRowAnimationBottom];
         
     } else {
