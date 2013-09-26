@@ -48,6 +48,7 @@ static NSString * const kProjectCellIdentifier = @"ProjectCellIdentifier";
     [self.tableView setDataSource:self];
     [self.tableView setDelegate:self];
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+    [self.tableView setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
     
     [self.view addSubview:self.tableView];
 }
